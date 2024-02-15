@@ -11,7 +11,8 @@
 
 
 ## Mount
-```const root = ReactDOM.createRoot(document.getElementById('react-root'));
+```
+const root = ReactDOM.createRoot(document.getElementById('react-root'));
 root.render(<Hello />);
 ```
 ## JSX
