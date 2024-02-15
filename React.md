@@ -53,7 +53,8 @@ const vdom = (
 ## Оператор расширения
 Работая с пропсами, нередко приходится передавать множество параметров, либо эти параметры присутствуют в коде в виде объекта. В таком случае можно упростить передачу, используя оператор расширения (spread-оператор).
 
-```const params = {
+```
+const params = {
   className: 'row',
   title: 'name',
 };
@@ -74,11 +75,13 @@ const vdom = <div id="container" className="row" title="name">
 Другая задача, с которой сталкиваются разработчики — установка значений по умолчанию для пропсов (для случаев, когда какие-то пропсы не переданы). Проще всего устанавливать их прямо внутри функции render, используя такой подход:
 
 ```const title = this.props.title || 'hi!';```
+
 Это сработает, но потенциально может привести к проблемам производительности (в первую очередь). Тема производительности будет рассмотрена в одном из последних уроков.
 
 В React предусмотрен способ устанавливать значения пропсов по умолчанию. Пример:
 
-```class Header extends React.Component {
+```
+class Header extends React.Component {
   render() {
     const { text } = this.props;
     return (
@@ -89,5 +92,14 @@ const vdom = <div id="container" className="row" title="name">
 
 Header.defaultProps = {
   text: 'Hello, world!',
+};
+```
+Вместо того, чтобы писать в коде ```
+{title || 'title'}, {text || 'text'}
+``` можно воспользоваться defaultProps
+```
+Card.defaultProps = {
+  title: 'title',
+  text: 'text',
 };
 ```
